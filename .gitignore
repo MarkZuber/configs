@@ -5,6 +5,7 @@
 !.gitignore
 !bashrc
 !dircolors
+!editorconfig
 !profile
 !tmux.conf
 !zshrc
