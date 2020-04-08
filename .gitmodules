@@ -1,0 +1,9 @@
+[submodule "repos/fonts"]
+	path = repos/fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "repos/oh-my-zsh"]
+	path = repos/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "repos/vim-colors-solarized"]
+	path = repos/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
