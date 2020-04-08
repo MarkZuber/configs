@@ -1,0 +1,22 @@
+# Ignore Everything
+/*
+
+# But don't ignore these files...
+!.gitignore
+!bashrc
+!dircolors
+!profile
+!tmux.conf
+!zshrc
+
+# Don't ignore in subdirs
+!/nvim/
+/nvim/plugged/
+!/repos/
+
+!vscode/
+vscode/*
+!vscode/User/
+vscode/User/*
+!vscode/User/settings.json
+!vscode/snippets/

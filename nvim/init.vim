@@ -1,0 +1,185 @@
+set shell=/bin/bash
+let mapleader = "\<Space>"
+
+set nocompatible
+filetype off
+set rtp+=~/dev/others/base16/builder/templates/vim/
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'ciaranm/securemodelines'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'justinmk/vim-sneak'
+
+Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-hightlightedyank'
+Plug 'andymass/vim-matchup'
+
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+Plug 'cespare/vim-toml'
+Plug 'stephy/vim-yaml'
+Plug 'plasticboy/vim-markdown'
+
+Plug 'chriskempson/base16-vim'
+Plug 'rust-lang/rust.vim'
+
+call plug#end()
+
+if has('nvim')
+	set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+	set inccommand=nosplit
+	noremap <C-q> :confirm qall<CR>
+end
+
+set termguicolors
+
+set background=dark
+colorscheme base16-gruvbox-dark-hard
+hi Normal ctermbg=NONE
+syntax on
+
+let base16colorspace=256
+let g:lightline = {
+	\ 'component_function': {
+	\	'filename': 'LightlineFilename',
+	\ },
+\ }
+function LightlineFilename()
+	return expand('%:5') !=# '' ? @% : '[No Name]'
+endfunction
+
+" Open hotkeys
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
+
+" Quick-save
+nmap <leader>w :w<CR>
+
+" Don't confirm .lvimrc
+let g:localvimrc_ask = 0
+
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+
+set cmdheight=2
+
+
+filetype plugin indent on
+set autoindent
+set timeoutlen=300
+set encoding=utf-8
+set scrolloff=2
+set noshowmode
+set hidden
+set nowrap
+set nojoinspaces
+let g:sneak#s_next = 1
+set printfont=:h10
+set printencoding=utf-8
+set printoptions=paper:letter
+
+set signcolumn=yes
+
+set exrc
+set secure
+
+set splitright
+set splitbelow
+
+set undodir=~/.vimdid
+set undofile
+
+set wildmenu
+set wildmode=list:longest
+set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
+
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set noexpandtab
+
+set formatoptions=tc
+set formatoptions+=r
+set formatoptions+=q
+set formatoptions+=n
+set formatoptions+=b
+
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+
+set guioptions-=T
+set vb t_vb=
+set backspace=2
+set nofoldenable
+set ttyfast
+set lazyredraw
+set synmaxcol=500
+set laststatus=2
+set relativenumber
+set number
+set diffopt+=iwhite
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
+set colorcolumn=80
+set showcmd
+set mouse=a
+set shortmess+=c
+
+nnoremap ; :
+
+inoremap <C-j> <Esc>
+nnoremap <C-k> <Esc>
+inoremap <C-k> <Esc>
+vnoremap <C-k> <Esc>
+snoremap <C-k> <Esc>
+xnoremap <C-k> <Esc>
+cnoremap <C-k> <Esc>
+onoremap <C-k> <Esc>
+lnoremap <C-k> <Esc>
+tnoremap <C-k> <Esc>
+
+nnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
+snoremap <C-c> <Esc>
+xnoremap <C-c> <Esc>
+cnoremap <C-c> <Esc>
+onoremap <C-c> <Esc>
+lnoremap <C-c> <Esc>
+tnoremap <C-c> <Esc>
+
+" Ctrl+h to stop searching
+vnoremap <C-h> :nohlsearch<cr>
+nnoremap <C-h> :nohlsearch<cr>
+
+" Suspend with ctrl+f
+inoremap <C-f> :sus<cr>
+vnoremap <C-f> :sus<cr>
+nnoremap <C-f> :sus<cr>
+
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
+
+" Neat X clipboard integration
+" ,p will paste clipboard into buffer
+" ,c will copy entire buffer into clipboard
+noremap <leader>p :read !xsel --clipboard --output<cr>
+noremap <leader>c :w !xsel -ib<cr><cr>
+
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+nnoremap j gj
+nnoremap k gk
+
+map <F1> <Esc>
+imap <F1> <Esc>
+
+
+
