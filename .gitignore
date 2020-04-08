@@ -13,6 +13,7 @@
 !/nvim/
 /nvim/plugged/
 !/repos/
+!/content/
 
 !vscode/
 vscode/*
