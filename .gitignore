@@ -16,6 +16,8 @@
 !/content/
 !/alacritty/
 !/zsh/
+/zsh/.zsh_history
+/zsh/.zcompdump*
 
 !vscode/
 vscode/*

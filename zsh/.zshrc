@@ -32,8 +32,13 @@ setopt HIST_REDUCE_BLANKS
 
 source $ZSH/oh-my-zsh.sh
 
+unamestr=`uname -n`
+if [[ "$unamestr" == "pop-os" ]]; then
+  echo 'Running on POP-OS'
+fi
+
 # Only do this on macos, on work servers, these get added to plugins array.
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]] || [[ "$unamestr" == "pop-os" ]]; then
 
   plugins=(
       cargo
@@ -60,7 +65,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
       yarn
       z
   )
+fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
@@ -74,6 +81,11 @@ if [ -f ~/.isworkserver ]; then
 )
 fi
 
+if [[ "$unamestr" == "pop-os" ]]; then
+  plugins+=(zsh-autosuggestions zsh-syntax-highlighting)
+fi
+
+
 # User configuration
 export editor='nvim'
 
@@ -86,8 +98,8 @@ alias cb="cargo build "
 alias cbr="cargo build --release "
 
 alias cls='clear'
-alias srcz="source ~/.zshrc"
-alias zshrc="code ~/.zshrc"
+alias srcz="source ~/.config/zsh/.zshrc"
+alias zshrc="code ~/.config/zsh/.zshrc"
 
 alias dotfiles="cd ~/repos/macdot"
 
@@ -139,42 +151,42 @@ alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 # | List Directory Contents (ls)                                               |
 # ------------------------------------------------------------------------------
 
-alias ls="ls --color "
+alias ls="exa "
 
 # list all files colorized in long format
-alias l="ls -lhF $COLORFLAG"
+alias l="exa -lhF $COLORFLAG"
 # list all files with directories
 alias ldir="l -R"
 # Show hidden files
-alias l.="ls -dlhF .* $COLORFLAG"
+alias l.="exa -dlhF .* $COLORFLAG"
 alias ldot="l."
 # use colors
-alias ls="ls -F $COLORFLAG"
+alias ls="exa -F $COLORFLAG"
 # display only files & dir in a v-aling view
-alias l1="ls -1 $COLORFLAG"
+alias l1="exa -1 $COLORFLAG"
 # displays all files and directories in detail
-alias la="ls -laFh $COLORFLAG"
+alias la="exa -laFh $COLORFLAG"
 # displays all files and directories in detail (without "." and without "..")
-alias lA="ls -lAFh $COLORFLAG"
+# alias lA="exa -lAFh $COLORFLAG"
 alias lsa="la"
 # displays all files and directories in detail with newest-files at bottom
-alias lr="ls -laFhtr $COLORFLAG"
+# alias lr="exa -laFhtr $COLORFLAG"
 # show last 10 recently changed files
-alias lt="ls -altr | grep -v '^d' | tail -n 10"
+alias lt="exa -altr | grep -v '^d' | tail -n 10"
 # show files and directories (also in sub-dir) that was touched in the last hour
 alias lf="find ./* -ctime -1 | xargs ls -ltr $COLORFLAG"
 # displays files and directories in detail
-alias ll="ls -lFh --group-directories-first $COLORFLAG"
+alias ll="exa -lFh --group-directories-first $COLORFLAG"
 # shows the most recently modified files at the bottom of
-alias llr="ls -lartFh --group-directories-first $COLORFLAG"
+# alias llr="exa -lartFh --group-directories-first $COLORFLAG"
 # list only directories
-alias lsd="ls -lFh $COLORFLAG | grep --color=never '^d'"
+alias lsd="exa -lFh $COLORFLAG | grep --color=never '^d'"
 # sort by file-size
-alias lS="ls -1FSshr $COLORFLAG"
+# alias lS="exa -1FSshr $COLORFLAG"
 # displays files and directories
-alias dir="ls --format=vertical $COLORFLAG"
+# alias dir="exa --format=vertical $COLORFLAG"
 # displays more information about files and directories
-alias vdir="ls --format=long $COLORFLAG"
+# alias vdir="exa --format=long $COLORFLAG"
 
 # tree (with fallback)
 if which tree >/dev/null 2>&1; then
