@@ -8,7 +8,6 @@
 !editorconfig
 !profile
 !tmux.conf
-!zshrc
 
 # Don't ignore in subdirs
 !/nvim/
@@ -16,6 +15,7 @@
 !/repos/
 !/content/
 !/alacritty/
+!/zsh/
 
 !vscode/
 vscode/*
