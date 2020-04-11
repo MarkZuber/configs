@@ -7,3 +7,6 @@
 [submodule "repos/vim-colors-solarized"]
 	path = repos/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "repos/layan-gtk-theme"]
+	path = repos/layan-gtk-theme
+	url = https://github.com/vinceliuice/Layan-gtk-theme

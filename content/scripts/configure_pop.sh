@@ -3,12 +3,19 @@
 sudo apt update && sudo apt -y upgrade
 
 # Large bundle of packages
-sudo apt install \
+sudo apt -y install \
     neofetch \
     neovim \
     zsh \
     zsh-autosuggestions \
-    zsh-syntax-highlighting
+    zsh-syntax-highlighting \
+    ttf-mscorefonts-installer \
+    ttf-bitstream-vera \
+    ttf-dejavu \
+    qbittorrent \
+    cmake \
+    gtk2-engines-murrine \
+    gtk2-engines-pixbuf
 
 
 # Alacritty
@@ -28,6 +35,15 @@ rm packages-microsoft-prod.deb
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install exa
 
+
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+
+# yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt -y install yarn
 
 # Setup links
 echo 'export ZDOTDIR=~/.config/zsh' > ~/.zshenv
