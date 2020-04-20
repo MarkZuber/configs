@@ -93,6 +93,7 @@ autoload -U compinit && compinit
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+alias vim="nvim"
 
 # User configuration
 export editor='nvim'
@@ -357,3 +358,5 @@ alias vst="cd ~/fbsource/xplat/vscode && yarn jest-node "
 commands() {
   awk '{a[$2]++}END{for(i in a){print a[i] " " i}}'
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
