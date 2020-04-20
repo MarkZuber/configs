@@ -90,8 +90,13 @@ autoload -U compinit && compinit
 
 
 # Configure NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
+else
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+fi
 
 alias vim="nvim"
 
@@ -109,12 +114,6 @@ alias cbr="cargo build --release "
 alias cls='clear'
 alias srcz="source ~/.config/zsh/.zshrc"
 alias zshrc="code ~/.config/zsh/.zshrc"
-
-alias dotfiles="cd ~/repos/macdot"
-
-alias dfbk="~/repos/macdot/macdot_backup.sh"
-alias dfrestore="~/repos/macdot/macdot_restore.sh"
-alias dfbootstrap="~/repos/macdot/macdot_bootstrap.sh"
 
 alias ..="cd .."
 alias ...="cd ../.."

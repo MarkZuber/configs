@@ -1,5 +1,6 @@
 # Ignore Everything
 /*
+.DS_Store
 
 # But don't ignore these files...
 !.gitignore
