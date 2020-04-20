@@ -44,7 +44,6 @@ if [[ "$OSTYPE" == "darwin"* ]] || [[ "$unamestr" == "pop-os" ]]; then
   plugins=(
       cargo
       extract
-      git
       github
       gitignore
       golang
@@ -347,9 +346,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 ##### Build Commands #####
 
-alias vscbldcln="cd ~/fbsource/xplat/vscode && yarn && yarn clean && yarn && yarn build && yarn task bundle-all-modules --daemon"
+alias vscbldcln="cd ~/fbsource/xplat/vscode && yarn && yarn build && yarn task bundle-all-modules --daemon"
 alias vscbld="cd ~/fbsource/xplat/vscode && yarn && yarn build && yarn task bundle-all-modules --daemon"
-alias vscdevsvr="cd ~/fbsource/xplat/vscode && yarn task bundle-all-modules --daemon && yarn task setup-devserver --devserver devvm2800.ftw3.facebook.com"
+alias vscdevsvr="cd ~/fbsource/xplat/vscode && yarn task bundle-all-modules --daemon && yarn task setup-devserver --devserver devvm2800.ftw3.facebook.com --disablestop"
 alias vst="cd ~/fbsource/xplat/vscode && yarn jest-node "
 
 # custom functions
@@ -359,3 +358,20 @@ commands() {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+## Main prompt
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+  prompt_aws
+  prompt_context
+  prompt_dir
+  prompt_git
+  prompt_bzr
+#  prompt_hg
+  prompt_end
+}
+
+PROMPT='%{%f%b%k%}$(build_prompt) '
