@@ -10,3 +10,9 @@
 [submodule "repos/layan-gtk-theme"]
 	path = repos/layan-gtk-theme
 	url = https://github.com/vinceliuice/Layan-gtk-theme
+[submodule "repos/zsh-autosuggestions"]
+	path = repos/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "repos/zsh-syntax-highlighting"]
+	path = repos/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

@@ -29,7 +29,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:~/.cargo/bin:/usr/local/go/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,23 +67,15 @@ if [[ "$OSTYPE" == "darwin"* ]] || [[ "$unamestr" == "pop-os" ]]; then
   )
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
 if [ -f ~/.isworkserver ]; then
   plugins=(
     history
-    zsh-syntax-highlighting
-    zsh-autosuggestions
     z
 )
 fi
 
-if [[ "$unamestr" == "pop-os" ]]; then
-  plugins+=(zsh-autosuggestions zsh-syntax-highlighting)
-fi
+source ~/.config/repos/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -U compinit && compinit
 
