@@ -11,15 +11,16 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-sneak'
 
 Plug 'itchyny/lightline.vim'
-Plug 'machakann/vim-hightlightedyank'
+Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 
 Plug 'airblade/vim-rooter'
+Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'cespare/vim-toml'
-Plug 'stephy/vim-yaml'
+Plug 'stephpy/vim-yaml'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'chriskempson/base16-vim'
@@ -161,6 +162,12 @@ nnoremap <C-h> :nohlsearch<cr>
 inoremap <C-f> :sus<cr>
 vnoremap <C-f> :sus<cr>
 nnoremap <C-f> :sus<cr>
+
+" tab switch
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
 
 " Jump to start and end of line using the home row keys
 map H ^

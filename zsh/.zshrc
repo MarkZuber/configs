@@ -29,7 +29,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-export PATH=$PATH:~/.cargo/bin:/usr/local/go/bin
+export PATH=$PATH:~/.config/inpath:~/.cargo/bin:/usr/local/go/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,6 +105,9 @@ alias cbr="cargo build --release "
 alias cls='clear'
 alias srcz="source ~/.config/zsh/.zshrc"
 alias zshrc="code ~/.config/zsh/.zshrc"
+alias viz="vim ~/.config/zsh/.zshrc"
+
+alias python="python3"
 
 alias ..="cd .."
 alias ...="cd ../.."
