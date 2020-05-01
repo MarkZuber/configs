@@ -370,3 +370,13 @@ build_prompt() {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
+
+
+if [ $IS_AT_WORK = true ]; then
+  figlet -f mini At Facebook | lolcat
+else
+  figlet -f mini At Home | lolcat
+fi
+
+fortune -s | cowsay | lolcat
+

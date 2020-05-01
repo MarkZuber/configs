@@ -19,6 +19,8 @@
 !/zsh/
 /zsh/.zsh_history
 /zsh/.zcompdump*
+!/colorscripts/
+!/inpath/
 
 !vscode/
 vscode/*

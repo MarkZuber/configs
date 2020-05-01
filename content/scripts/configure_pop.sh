@@ -15,7 +15,10 @@ sudo apt -y install \
     qbittorrent \
     cmake \
     gtk2-engines-murrine \
-    gtk2-engines-pixbuf
+    gtk2-engines-pixbuf \
+    cowsay \
+    figlet \
+    fortune
 
 
 # Alacritty
