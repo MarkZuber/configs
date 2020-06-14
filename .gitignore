@@ -1,21 +1,30 @@
-autostart/
-caffeine/
-dconf/
-evolution/
-falkon/
-goa-1.0/
-gtk-3.0/
-hexchat/
-Kvantum/
-ibus/
-nautilus/
-pamac/
-pulse/
-qt5ct/
-ranger/
-Trolltech.conf
-user-dirs.dirs
-user-dirs.locale
-manjaro-hello.json
-mimeapps.list
+# Ignore Everything
+/*
+.DS_Store
 
+# But don't ignore these files...
+!.gitignore
+!bashrc
+!dircolors
+!editorconfig
+!profile
+!tmux.conf
+
+# Don't ignore in subdirs
+!/nvim/
+/nvim/plugged/
+!/repos/
+!/content/
+!/alacritty/
+!/zsh/
+/zsh/.zsh_history
+/zsh/.zcompdump*
+!/colorscripts/
+!/inpath/
+
+!vscode/
+vscode/*
+!vscode/User/
+vscode/User/*
+!vscode/User/settings.json
+!vscode/snippets/
