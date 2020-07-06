@@ -78,3 +78,5 @@
 	email = mark@zube.com
 [credential]
 	helper = store
+[pull]
+	rebase = true
