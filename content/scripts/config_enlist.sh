@@ -2,7 +2,7 @@
 
 git_pull_configs() {
     # Initial repo pull and setup
-    if [ ! -f ~/.config/.git ]; then
+    if [ ! -d ~/.config/.git ]; then
         echo Pulling git configs into ~/.config...
         pushd ~/.config
         git init
