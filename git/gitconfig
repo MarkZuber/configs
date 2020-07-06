@@ -76,3 +76,5 @@
 [user]
 	name = Mark Zuber
 	email = mark@zube.com
+[credential]
+	helper = store
