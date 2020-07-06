@@ -2,7 +2,7 @@
 
 git_pull_configs() {
     # Initial repo pull and setup
-    if [ ! -d ~/.config/.git ]; then
+    if [ ! -d "~/.config/.git" ]; then
         echo Pulling git configs into ~/.config...
         pushd ~/.config
         git init
@@ -17,19 +17,19 @@ git_pull_configs() {
 
 configure_symlinks() {
     # Symlinks for config files
-    if [ -f ~/.editorconfig ]; then
+    if [ -f "~/.editorconfig" ]; then
         mv ~/.editorconfig ~/.editorconfig_original
     fi
-    if [ -f ~/.gitconfig ]; then
+    if [ -f "~/.gitconfig" ]; then
         mv ~/.gitconfig ~/.gitconfig_original
     fi
-    if [ -f ~/.zshrc ]; then
+    if [ -f "~/.zshrc" ]; then
         mv ~/.zshrc ~/.zshrc_original
     fi
-    if [ -f ~/.bashrc ]; then
+    if [ -f "~/.bashrc" ]; then
         mv ~/.bashrc ~/.bashrc_original
     fi
-    if [ -f ~/.vimrc ]; then
+    if [ -f "~/.vimrc" ]; then
         mv ~/.vimrc ~/.vimrc_original
     fi
 
