@@ -49,6 +49,7 @@ configure_arch() {
 
     arch_pkgs=(
         'neovim',
+        'dmenu',
         'cowsay',
         'figlet',
         'lolcat',
@@ -78,6 +79,7 @@ configure_arch() {
         'virtualbox-ext-oracle',
         'nerd-fonts-cascadia-code',
         'ttf-windows',
+        'polybar',
         'dotnet-sdk-bin')
 
     yay_pkg_args="${yay_pkgs[@]/,/ }"
