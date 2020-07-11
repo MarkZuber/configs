@@ -23,6 +23,7 @@
 !/inpath/
 !/git/
 !/awesome/
+!/polybar/
 
 !vscode/
 vscode/*
