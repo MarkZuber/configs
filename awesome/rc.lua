@@ -63,7 +63,7 @@ beautiful.wallpaper = "/home/zube/.config/content/img/cyberpunk2.jpg"
 -- This is used later as the default terminal and editor to run.
 browser = "exo-open --launch WebBrowser" or "firefox"
 filemanager = "exo-open --launch FileManager" or "thunar"
-gui_editor = "mousepad"
+gui_editor = "code"
 -- terminal = os.getenv("TERMINAL") or "alacritty"
 terminal = "alacritty"
 
@@ -385,9 +385,9 @@ end, {description = "capture a screenshot of selection", group = "screenshot"}),
         c:raise()
     end
 end, {description = "restore minimized", group = "client"}), -- Prompt
-awful.key({modkey}, "r",
-          function() awful.screen.focused().mypromptbox:run() end,
-          {description = "run prompt", group = "launcher"}),
+awful.key({modkey}, "r", function()
+    awful.util.spawn("dmenu_run -fn 'Noto Sans Regular-16'")
+end, {description = "run prompt", group = "launcher"}),
 
                               awful.key({modkey}, "ö", function()
     awful.prompt.run {
@@ -527,11 +527,11 @@ awful.rules.rules = {
             }
         },
         properties = {floating = true}
-    }, -- Add titlebars to normal clients and dialogs
-    {
-        rule_any = {type = {"normal", "dialog"}},
-        properties = {titlebars_enabled = true}
-    }
+    } -- Add titlebars to normal clients and dialogs
+    -- {
+    --     rule_any = {type = {"normal", "dialog"}},
+    --     properties = {titlebars_enabled = true}
+    -- }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
@@ -556,49 +556,49 @@ client.connect_signal("manage", function(c)
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-    -- buttons for the titlebar
-    local buttons = gears.table.join(awful.button({}, 1, function()
-        client.focus = c
-        c:raise()
-        awful.mouse.client.move(c)
-    end), awful.button({}, 3, function()
-        client.focus = c
-        c:raise()
-        awful.mouse.client.resize(c)
-    end))
-
-    awful.titlebar(c):setup{
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton(c),
-            awful.titlebar.widget.stickybutton(c),
-            -- awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.closebutton(c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
-    -- Hide the menubar if we are not floating
-    -- local l = awful.layout.get(c.screen)
-    -- if not (l.name == "floating" or c.floating) then
-    --     awful.titlebar.hide(c)
-    -- end
-end)
-
+-- client.connect_signal("request::titlebars", function(c)
+--     -- buttons for the titlebar
+--     local buttons = gears.table.join(awful.button({}, 1, function()
+--         client.focus = c
+--         c:raise()
+--         awful.mouse.client.move(c)
+--     end), awful.button({}, 3, function()
+--         client.focus = c
+--         c:raise()
+--         awful.mouse.client.resize(c)
+--     end))
+--
+--     awful.titlebar(c):setup{
+--         { -- Left
+--             awful.titlebar.widget.iconwidget(c),
+--             buttons = buttons,
+--             layout = wibox.layout.fixed.horizontal
+--         },
+--         { -- Middle
+--             { -- Title
+--                 align = "center",
+--                 widget = awful.titlebar.widget.titlewidget(c)
+--             },
+--             buttons = buttons,
+--             layout = wibox.layout.flex.horizontal
+--         },
+--         { -- Right
+--             awful.titlebar.widget.floatingbutton(c),
+--             awful.titlebar.widget.stickybutton(c),
+--             -- awful.titlebar.widget.ontopbutton    (c),
+--             awful.titlebar.widget.maximizedbutton(c),
+--             awful.titlebar.widget.closebutton(c),
+--             layout = wibox.layout.fixed.horizontal()
+--         },
+--         layout = wibox.layout.align.horizontal
+--     }
+--     -- Hide the menubar if we are not floating
+--     -- local l = awful.layout.get(c.screen)
+--     -- if not (l.name == "floating" or c.floating) then
+--     --     awful.titlebar.hide(c)
+--     -- end
+-- end)
+--
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
     if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier and
