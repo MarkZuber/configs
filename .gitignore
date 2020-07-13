@@ -21,6 +21,8 @@
 /zsh/.zcompdump*
 !/colorscripts/
 !/inpath/
+!/git/
+!/awesome/
 
 !vscode/
 vscode/*
