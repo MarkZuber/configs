@@ -96,6 +96,8 @@ export editor='nvim'
 
 # Aliases
 
+alias open="exo-open "
+
 ### Rust Aliases
 alias cr="cargo run "
 alias crr="cargo run --release "

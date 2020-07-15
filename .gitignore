@@ -24,6 +24,7 @@
 !/git/
 !/awesome/
 !/polybar/
+!/rofi/
 
 !vscode/
 vscode/*
