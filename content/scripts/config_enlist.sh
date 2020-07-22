@@ -63,6 +63,7 @@ configure_arch() {
         'youtube-dl',
         'yarn',
         'nodejs-lts-erbium',
+        'polybar',
         'docker',
         'zsh-autosuggestions',
         'zsh-syntax-highlighting')
