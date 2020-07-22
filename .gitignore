@@ -25,6 +25,7 @@
 !/awesome/
 !/polybar/
 !/rofi/
+!/picom/
 
 !vscode/
 vscode/*
