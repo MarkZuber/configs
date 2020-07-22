@@ -549,4 +549,4 @@ end
 -- end)
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
-awful.spawn.with_shell("~/.config/polybar/launch.sh")
+awful.spawn.with_shell("/home/zube/.config/polybar/launch.sh")
