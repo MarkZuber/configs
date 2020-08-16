@@ -89,6 +89,57 @@ configure_arch() {
 
 configure_ubuntu() {
     echo "This appears to be an Ubuntu/Debian based system.  Configuring..."
+
+    sudo apt update && sudo apt -y upgrade
+    sudo apt -y install \
+        alacritty \
+        neofetch \
+        neovim \
+        zsh \
+        zsh-autosuggestions \
+        zsh-syntax-highlighting \
+        ttf-mscorefonts-installer \
+        ttf-bitstream-vera \
+        ttf-dejavu \
+        qbittorrent \
+        cmake \
+        gtk2-engines-murrine \
+        gtk2-engines-pixbuf \
+        cowsay \
+        figlet \
+        fortune \
+        lolcat \
+        google-chrome-stable \
+        code \
+        spotify-client
+
+    # nvm
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    source ~/.bashrc
+    nvm install lts/erbium
+    
+    # yarn
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list    
+    sudo apt update
+    # no install recommends since we installed node via nvm
+    sudo apt install --no-install-recommends yarn
+
+    # dotnet
+    wget https://packages.microsoft.com/config/ubuntu/19.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
+    sudo apt update
+    sudo apt -y install apt-transport-https
+    sudo apt -y update
+    sudo apt -y install dotnet-sdk-3.1
+    rm packages-microsoft-prod.deb
+
+    sudo apt install docker.io
+    sudo systemctl enable --now docker
+    sudo usermod -aG docker $USER
+
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    export PATH=~/.cargo/bin:$PATH
 }
 
 configure_rust() {
