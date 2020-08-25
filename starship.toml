@@ -1,0 +1,88 @@
+# starship prompt configuration
+# See: https://starship.rs/config/#prompt
+
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+#prompt_order=["rust","line_break","package","line_break","hostname","character"]
+# Replace the ">" symbol in the prompt with "➜"
+[character]
+symbol = "➜"
+
+[hostname]
+ssh_only = false
+prefix = "⟪"
+suffix = "⟫"
+# trim_at = ".companyname.com"
+disabled = false
+
+[env_var]
+variable = "SHELL"
+default = "unknown shell"
+disabled = true
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = false
+threshold = -1
+symbol = " "
+
+[time]
+disabled = false
+# format = "🕙[ %T ]"
+use_12hr = true
+#utc_time_offset = "-5"
+#time_range = "10:00:00-14:00:00"
+
+[username]
+disabled = false
+#show_always = true
+
+[docker]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+# symbol = " "
+
+[package]
+# symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+# symbol = " "
+
+
+
+
+
+

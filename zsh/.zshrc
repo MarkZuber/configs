@@ -382,3 +382,4 @@ fi
 
 fortune -s | cowsay | lolcat
 
+eval "$(starship init zsh)"

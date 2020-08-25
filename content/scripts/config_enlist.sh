@@ -142,14 +142,19 @@ configure_ubuntu() {
     export PATH=~/.cargo/bin:$PATH
 }
 
+# https://dev.to/22mahmoud/my-terminal-became-more-rusty-4g8l
 configure_rust() {
     rustup default stable
     cargo install exa
     cargo install cross
+    cargo install starship
+    cargo install bottom
+    cargo install fd-find
+    brew install ripgrep
 }
 
 configure_fonts() {
-  ~/.config/content/fonts/install.sh
+    ~/.config/content/fonts/install.sh
 }
 
 

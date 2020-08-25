@@ -9,6 +9,7 @@
 !editorconfig
 !profile
 !tmux.conf
+!starship.toml
 
 # Don't ignore in subdirs
 !/nvim/
