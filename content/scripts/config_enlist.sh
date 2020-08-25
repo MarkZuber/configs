@@ -117,10 +117,10 @@ configure_ubuntu() {
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     source ~/.bashrc
     nvm install lts/erbium
-    
+
     # yarn
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list    
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update
     # no install recommends since we installed node via nvm
     sudo apt install --no-install-recommends yarn
@@ -152,6 +152,15 @@ configure_fonts() {
   ~/.config/content/fonts/install.sh
 }
 
+
+configure_nvim() {
+  yarn global add neovim
+  yarn global add typescript
+
+  # from github.com/Shougu/deoplete.nvim#install
+  pip3 install --user pynvim
+}
+
 git_pull_configs
 configure_symlinks
 
@@ -164,6 +173,7 @@ if [ -f "/usr/bin/apt" ]; then
     configure_ubuntu
 fi
 
+configure_nvim
 configure_rust
 configure_fonts
 

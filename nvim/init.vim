@@ -26,6 +26,17 @@ Plug 'plasticboy/vim-markdown'
 Plug 'chriskempson/base16-vim'
 Plug 'rust-lang/rust.vim'
 
+" Required: Add a syntax file.  YATS is the best
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" For async completion
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" Denite features
+Plug 'Shougo/denite.nvim'
+
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
 
 if has('nvim')
