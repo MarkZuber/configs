@@ -151,19 +151,19 @@ configure_rust() {
     cargo install bottom
     cargo install fd-find
     brew install ripgrep
+    brew install git-delta
 }
 
 configure_fonts() {
     ~/.config/content/fonts/install.sh
 }
 
-
 configure_nvim() {
-  yarn global add neovim
-  yarn global add typescript
+    yarn global add neovim
+    yarn global add typescript
 
-  # from github.com/Shougu/deoplete.nvim#install
-  pip3 install --user pynvim
+    # from github.com/Shougu/deoplete.nvim#install
+    pip3 install --user pynvim
 }
 
 git_pull_configs
