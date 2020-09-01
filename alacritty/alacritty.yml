@@ -17,9 +17,9 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 100
+    lines: 40
 
   # Window position (changes require restart)
   #
@@ -98,6 +98,8 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: Cascadia Code PL
+    #family: NotoMono NF
+    #family: MonoFur NF
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -136,7 +138,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 20.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -278,7 +280,7 @@ draw_bold_text_with_bright_colors: true
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.7
+background_opacity: 0.95
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -500,7 +502,7 @@ background_opacity: 0.7
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
-#key_bindings:
+key_bindings:
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
@@ -510,7 +512,7 @@ background_opacity: 0.7
   #- { key: Add,      mods: Control,       action: IncreaseFontSize }
   #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
   #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
-
+  - { key: N, mods: Alt, action: SpawnNewInstance }
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 

@@ -142,6 +142,34 @@ configure_ubuntu() {
     export PATH=~/.cargo/bin:$PATH
 }
 
+function configure_fedora() {
+  echo "This appears to be a Fedora system.  Configuring..."
+
+  sudo dnf upgrade
+
+  sudo dnf -y copr enable pschyska/alacritty
+
+  sudo dnf -y install \
+    neovim \
+    util-linux-user \  # for chsh
+    cmake \
+    openssl-devel \
+    alacritty \
+    nodejs \
+    nodejs-yarn \
+    figlet \
+    lolcat \
+    cowsay \
+    zsh \
+
+  sudo lchsh $USER /usr/bin/zsh
+
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  export PATH=~/.cargo/bin:$PATH
+
+  cargo install alacritty
+}
+
 # https://dev.to/22mahmoud/my-terminal-became-more-rusty-4g8l
 configure_rust() {
     rustup default stable
@@ -150,8 +178,8 @@ configure_rust() {
     cargo install starship
     cargo install bottom
     cargo install fd-find
-    brew install ripgrep
-    brew install git-delta
+    # brew install ripgrep
+    # brew install git-delta
 }
 
 configure_fonts() {
@@ -176,6 +204,10 @@ fi
 
 if [ -f "/usr/bin/apt" ]; then
     configure_ubuntu
+fi
+
+if [ -f "/usr/bin/yum" ]; then
+  configure_fedora
 fi
 
 configure_nvim
