@@ -112,6 +112,7 @@ configure_ubuntu() {
         google-chrome-stable \
         code \
         libssl-dev \
+        gnome-tweaks \
         spotify-client
 
     # nvm
