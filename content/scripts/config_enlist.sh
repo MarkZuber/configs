@@ -111,6 +111,7 @@ configure_ubuntu() {
         lolcat \
         google-chrome-stable \
         code \
+        libssl-dev \
         spotify-client
 
     # nvm
