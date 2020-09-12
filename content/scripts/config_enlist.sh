@@ -115,6 +115,12 @@ configure_ubuntu() {
         gnome-tweaks \
         spotify-client
 
+    # candy icons
+    pushd ~/repos
+    git clone https://github.com/EliverLara/candy-icons
+    mkdir -p ~/.icons/candy-icons
+    cp -R ~/repos/candy-icons/* ~/.icons/candy-icons
+
     # nvm
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     source ~/.bashrc
