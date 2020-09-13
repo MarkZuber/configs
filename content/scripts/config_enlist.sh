@@ -112,6 +112,7 @@ configure_ubuntu() {
         google-chrome-stable \
         code \
         libssl-dev \
+        lm-sensors \
         gnome-tweaks \
         spotify-client
 
