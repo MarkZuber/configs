@@ -192,7 +192,12 @@ configure_rust() {
 }
 
 configure_fonts() {
-    ~/.config/content/fonts/install.sh
+  git clone https://github.com/markzuber/fonts.git ~/fonts
+  ~/fonts/install.sh
+}
+
+configure_wallpaper() {
+  git clone https://github.com/markzuber/wallpaper.git ~/wallpaper
 }
 
 configure_nvim() {
@@ -209,10 +214,14 @@ configure_symlinks
 # Distro specific configs
 if [ -f "/etc/arch-release" ]; then
     configure_arch
+    configure_fonts
+    configure_wallpaper
 fi
 
 if [ -f "/usr/bin/apt" ]; then
     configure_ubuntu
+    configure_fonts
+    configure_wallpaper
 fi
 
 if [ -f "/usr/bin/yum" ]; then
@@ -221,6 +230,5 @@ fi
 
 configure_nvim
 configure_rust
-configure_fonts
 
 exit $?
