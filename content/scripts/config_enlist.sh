@@ -124,6 +124,7 @@ configure_ubuntu() {
 
     # nvm
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
     source ~/.bashrc
     nvm install lts/erbium
 
