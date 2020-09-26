@@ -170,14 +170,19 @@ function configure_fedora() {
     figlet \
     lolcat \
     cowsay \
+    libX11-devel \      # needed to build vscode
+    libxkbfile-devel \  # needed to build vscode
+    libsecret-devel \   # needed to build vscode
     zsh \
+
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  source ~/.bashrc
+  nvm install 10
 
   sudo lchsh $USER /usr/bin/zsh
 
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   export PATH=~/.cargo/bin:$PATH
-
-  cargo install alacritty
 }
 
 # https://dev.to/22mahmoud/my-terminal-became-more-rusty-4g8l
