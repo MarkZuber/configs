@@ -182,7 +182,7 @@ function configure_fedora() {
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
     nvm install 10
 
-    sudo lchsh $USER /usr/bin/zsh
+    chsh -s /usr/bin/zsh
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     export PATH=~/.cargo/bin:$PATH
