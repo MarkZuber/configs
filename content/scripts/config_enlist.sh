@@ -171,6 +171,7 @@ function configure_fedora() {
         fortune-mod \
         lolcat \
         cowsay \
+        gnome-tweak-tool \
         libX11-devel \
         libxkbfile-devel \
         libsecret-devel \
@@ -193,8 +194,6 @@ function configure_fedora() {
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     export PATH=~/.cargo/bin:$PATH
-
-    git clone https://github.com/markzuber/wallpaper ~/wallpaper
 }
 
 # https://dev.to/22mahmoud/my-terminal-became-more-rusty-4g8l
@@ -212,7 +211,7 @@ configure_rust() {
 }
 
 configure_fonts() {
-    git clone https://github.com/markzuber/fonts.git ~/fonts
+    git clone --recurse-submodules https://github.com/markzuber/fonts.git ~/fonts
     ~/fonts/install.sh
 }
 
@@ -246,6 +245,8 @@ fi
 
 if [ -f "/usr/bin/yum" ]; then
     configure_fedora
+    configure_fonts
+    configure_wallpaper
 fi
 
 configure_nvim
