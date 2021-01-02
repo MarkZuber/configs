@@ -153,36 +153,36 @@ configure_ubuntu() {
 }
 
 function configure_fedora() {
-  echo "This appears to be a Fedora system.  Configuring..."
+    echo "This appears to be a Fedora system.  Configuring..."
 
-  sudo dnf upgrade
+    sudo dnf upgrade
 
-  sudo dnf -y copr enable pschyska/alacritty
+    sudo dnf -y copr enable pschyska/alacritty
 
-  sudo dnf -y install \
-    neovim \
-    util-linux-user \  # for chsh
-    cmake \
-    openssl-devel \
-    alacritty \
-    nodejs \
-    nodejs-yarn \
-    figlet \
-    lolcat \
-    cowsay \
-    libX11-devel \      # needed to build vscode
-    libxkbfile-devel \  # needed to build vscode
-    libsecret-devel \   # needed to build vscode
-    zsh \
+    sudo dnf -y install \
+        neovim \
+        util-linux-user \
+        cmake \
+        openssl-devel \
+        alacritty \
+        nodejs \
+        nodejs-yarn \
+        figlet \
+        lolcat \
+        cowsay \
+        libX11-devel \
+        libxkbfile-devel \
+        libsecret-devel \
+        zsh
 
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-  source ~/.bashrc
-  nvm install 10
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    source ~/.bashrc
+    nvm install 10
 
-  sudo lchsh $USER /usr/bin/zsh
+    sudo lchsh $USER /usr/bin/zsh
 
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  export PATH=~/.cargo/bin:$PATH
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    export PATH=~/.cargo/bin:$PATH
 }
 
 # https://dev.to/22mahmoud/my-terminal-became-more-rusty-4g8l
@@ -198,12 +198,12 @@ configure_rust() {
 }
 
 configure_fonts() {
-  git clone https://github.com/markzuber/fonts.git ~/fonts
-  ~/fonts/install.sh
+    git clone https://github.com/markzuber/fonts.git ~/fonts
+    ~/fonts/install.sh
 }
 
 configure_wallpaper() {
-  git clone https://github.com/markzuber/wallpaper.git ~/wallpaper
+    git clone https://github.com/markzuber/wallpaper.git ~/wallpaper
 }
 
 configure_nvim() {
@@ -231,7 +231,7 @@ if [ -f "/usr/bin/apt" ]; then
 fi
 
 if [ -f "/usr/bin/yum" ]; then
-  configure_fedora
+    configure_fedora
 fi
 
 configure_nvim
