@@ -15,18 +15,27 @@ prefix = "⟪"
 suffix = "⟫"
 # trim_at = ".companyname.com"
 disabled = false
+style = "bold green"
+
+[directory]
+disabled = false
+truncation_length = 4
+truncate_to_repo = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_symbol = "…/"
 
 [env_var]
 variable = "SHELL"
 default = "unknown shell"
 disabled = true
+style = "bold green"
 
-[memory_usage]
-disabled = false
-show_percentage = true
-show_swap = false
-threshold = -1
-symbol = " "
+# [memory_usage]
+# disabled = false
+# show_percentage = true
+# show_swap = false
+# threshold = -1
+# symbol = " "
 
 [time]
 disabled = false
@@ -37,10 +46,13 @@ use_12hr = true
 
 [username]
 disabled = false
-#show_always = true
+# show_always = true
 
 [docker]
 symbol = " "
+
+[git_state]
+disabled = false
 
 [git_branch]
 symbol = " "
@@ -80,6 +92,16 @@ symbol = " "
 
 [rust]
 # symbol = " "
+
+[custom]
+
+[custom.tab]
+description = "The current tab in the tab terminal multiplexer"
+command = "tab --starship"
+when = "tab --starship"
+shell = ["sh"]
+format = "[$output]($style) "
+style = "bold blue"
 
 
 

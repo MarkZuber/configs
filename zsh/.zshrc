@@ -1,4 +1,3 @@
-
 IS_AT_WORK=false
 
 if [ -f ~/.isatwork ]; then
@@ -23,17 +22,17 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 setopt CORRECT
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
+setopt EXTENDED_HISTORY                 # add timestamps to history
+setopt APPEND_HISTORY                   # adds history
+setopt INC_APPEND_HISTORY SHARE_HISTORY # adds history incrementally and share it across sessions
+setopt HIST_IGNORE_ALL_DUPS             # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 export PATH=$PATH:~/.config/inpath:~/.cargo/bin:/usr/local/go/bin
 
 source $ZSH/oh-my-zsh.sh
 
-unamestr=`uname -n`
+unamestr=$(uname -n)
 if [[ "$unamestr" == "pop-os" ]]; then
   echo 'Running on POP-OS'
 fi
@@ -42,28 +41,28 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$unamestr" == "pop-os" ]]; then
 
   plugins=(
-      cargo
-      extract
-      github
-      gitignore
-      golang
-      history
-      jsontools
-      last-working-dir
-      osx
-      rand-quote
-      rsync
-      rust
-      sudo
-      systemd
-      themes
-      timer
-      urltools
-      vscode
-      web-search
-      xcode
-      yarn
-      z
+    cargo
+    extract
+    github
+    gitignore
+    golang
+    history
+    jsontools
+    last-working-dir
+    osx
+    rand-quote
+    rsync
+    rust
+    sudo
+    systemd
+    themes
+    timer
+    urltools
+    vscode
+    web-search
+    xcode
+    yarn
+    z
   )
 fi
 
@@ -71,14 +70,13 @@ if [ -f ~/.isworkserver ]; then
   plugins=(
     history
     z
-)
+  )
 fi
 
 source ~/.config/repos/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -U compinit && compinit
-
 
 # Configure NVM
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -292,7 +290,6 @@ alias du_overview='du -h | grep "^[0-9,]*[MG]" | sort -hr | less'
 # shows the complete disk usage to legibly
 alias df='df -kTh'
 
-
 # ------------------------------------------------------------------------------
 # | Other                                                                      |
 # ------------------------------------------------------------------------------
@@ -301,13 +298,13 @@ alias df='df -kTh'
 alias dec2hex='printf "%x\n" $1'
 
 # Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd="hexdump -C"
+command -v hd >/dev/null || alias hd="hexdump -C"
 
 # OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
+command -v md5sum >/dev/null || alias md5sum="md5"
 
 # OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
+command -v sha1sum >/dev/null || alias sha1sum="shasum"
 
 # intuitive map function
 #
@@ -318,26 +315,25 @@ alias map="xargs -n1"
 ## Visual Studio related stuff...
 
 do_vswhere() {
-    # https://stackoverflow.com/questions/54820639/how-do-i-create-a-zsh-alias-on-wsl-that-runs-vswhere-exe-and-executes-the-path
-    wherePath="$(vswhere.exe -property $1 -latest -format value $2)"
-    vsPath=$(wslpath -a "$wherePath")
-    # Strip the trailing carriage return, if present
-    vsPath="${vsPath%$'\r'}"
+  # https://stackoverflow.com/questions/54820639/how-do-i-create-a-zsh-alias-on-wsl-that-runs-vswhere-exe-and-executes-the-path
+  wherePath="$(vswhere.exe -property $1 -latest -format value $2)"
+  vsPath=$(wslpath -a "$wherePath")
+  # Strip the trailing carriage return, if present
+  vsPath="${vsPath%$'\r'}"
 
-    "$vsPath" &
+  "$vsPath" &
 }
 
 devenv_path_ex() {
-    do_vswhere productPath
+  do_vswhere productPath
 }
 
 devenv_path_p_ex() {
-    do_vswhere productPath -prerelease
+  do_vswhere productPath -prerelease
 }
 
 alias devenv=devenv_path_ex
 alias devenvp=devenv_path_p_ex
-
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -356,7 +352,6 @@ commands() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 ## Main prompt
 build_prompt() {
   RETVAL=$?
@@ -367,12 +362,11 @@ build_prompt() {
   prompt_dir
   prompt_git
   prompt_bzr
-#  prompt_hg
+  #  prompt_hg
   prompt_end
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
-
 
 if [ $IS_AT_WORK = true ]; then
   figlet -f mini At Facebook | lolcat
@@ -383,3 +377,7 @@ fi
 fortune -s | cowsay | lolcat
 
 eval "$(starship init zsh)"
+
+# tab multiplexer configuration: https://github.com/austinjones/tab-rs/
+[ -f "/Users/zube/Library/Application Support/tab/completion/zsh-history.zsh" ] && source "/Users/zube/Library/Application Support/tab/completion/zsh-history.zsh"
+# end tab configuration
