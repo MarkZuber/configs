@@ -168,12 +168,19 @@ function configure_fedora() {
         nodejs \
         nodejs-yarn \
         figlet \
+        fortune-mod \
         lolcat \
         cowsay \
         libX11-devel \
         libxkbfile-devel \
         libsecret-devel \
         zsh
+
+    # install vscode
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+    sudo dnf check-update
+    sudo dnf install code
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
     source ~/.bashrc
@@ -197,6 +204,7 @@ configure_rust() {
     cargo install bottom
     cargo install fd-find
     cargo install tab
+    cargo install cargo-update
     # brew install ripgrep
     # brew install git-delta
 }

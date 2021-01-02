@@ -11,8 +11,9 @@ symbol = "➜"
 
 [hostname]
 ssh_only = false
-prefix = "⟪"
-suffix = "⟫"
+# prefix = "⟪"
+# suffix = "⟫"
+format = "[⟪]($style)[$hostname]($style)[⟫]($style) in "
 # trim_at = ".companyname.com"
 disabled = false
 style = "bold green"
@@ -20,7 +21,7 @@ style = "bold green"
 [directory]
 disabled = false
 truncation_length = 4
-truncate_to_repo = true
+truncate_to_repo = false
 format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_symbol = "…/"
 
