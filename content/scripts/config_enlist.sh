@@ -196,6 +196,7 @@ configure_rust() {
     cargo install starship
     cargo install bottom
     cargo install fd-find
+    cargo install tab
     # brew install ripgrep
     # brew install git-delta
 }
