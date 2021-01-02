@@ -193,6 +193,8 @@ function configure_fedora() {
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     export PATH=~/.cargo/bin:$PATH
+
+    git clone https://github.com/markzuber/wallpaper ~/wallpaper
 }
 
 # https://dev.to/22mahmoud/my-terminal-became-more-rusty-4g8l
