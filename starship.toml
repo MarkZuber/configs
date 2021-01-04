@@ -5,7 +5,7 @@
 add_newline = true
 # Replace the ">" symbol in the prompt with "➜"
 [character]
-symbol = "➜"
+success_symbol = "[➜](bold blue)"
 
 [hostname]
 ssh_only = false
@@ -38,6 +38,7 @@ style = "bold green"
 disabled = false
 # format = "🕙[ %T ]"
 use_12hr = true
+format = "[$time]($style) "
 #utc_time_offset = "-5"
 #time_range = "10:00:00-14:00:00"
 
