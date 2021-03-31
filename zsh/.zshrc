@@ -30,6 +30,9 @@ setopt HIST_REDUCE_BLANKS
 
 export PATH=$PATH:~/.config/inpath:~/.cargo/bin:/usr/local/go/bin
 
+# always update but never prompt for it
+export DISABLE_UPDATE_PROMPT=true
+
 source $ZSH/oh-my-zsh.sh
 
 unamestr=$(uname -n)
