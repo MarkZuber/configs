@@ -95,12 +95,12 @@ symbol = " "
 [custom]
 
 [custom.tab]
-description = "The current tab in the tab terminal multiplexer"
-command = "tab --starship"
-when = "tab --starship"
-shell = ["sh"]
-format = "[$output]($style) "
-style = "bold blue"
+# description = "The current tab in the tab terminal multiplexer"
+# command = "tab --starship"
+# when = "tab --starship"
+# shell = ["sh"]
+# format = "[$output]($style) "
+# style = "bold blue"
 
 
 
