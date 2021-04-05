@@ -27,6 +27,7 @@
 !/polybar/
 !/rofi/
 !/picom/
+!/iterm2/
 
 !vscode/
 vscode/*
