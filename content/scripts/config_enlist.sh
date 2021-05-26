@@ -2,6 +2,10 @@
 
 git_pull_configs() {
     # Initial repo pull and setup
+    if [ ! -d "$HOME/.config"]; then
+        mkdir "$HOME/.config"
+    fi
+
     if [ ! -d "$HOME/.config/.git" ]; then
         echo Pulling git configs into ~/.config...
         pushd $HOME/.config
@@ -90,31 +94,34 @@ configure_arch() {
 configure_ubuntu() {
     echo "This appears to be an Ubuntu/Debian based system.  Configuring..."
 
+    # doing install individually for each one in case a package name changes
+    # or isn't available.  
+
     sudo apt update && sudo apt -y upgrade
-    sudo apt -y install \
-        alacritty \
-        neofetch \
-        neovim \
-        zsh \
-        zsh-autosuggestions \
-        zsh-syntax-highlighting \
-        ttf-mscorefonts-installer \
-        ttf-bitstream-vera \
-        ttf-dejavu \
-        qbittorrent \
-        cmake \
-        gtk2-engines-murrine \
-        gtk2-engines-pixbuf \
-        cowsay \
-        figlet \
-        fortune \
-        lolcat \
-        google-chrome-stable \
-        code \
-        libssl-dev \
-        lm-sensors \
-        gnome-tweaks \
-        spotify-client
+    sudo apt -y install build-essential # needed for rust projects
+    sudo apt -y install libssl-dev # needed for starship
+    sudo apt -y install pkg-config # needed for starship
+    sudo apt -y install neofetch
+    sudo apt -y install neovim
+    sudo apt -y install zsh
+    sudo apt -y install zsh-autosuggestions
+    sudo apt -y install zsh-syntax-highlighting
+    sudo apt -y install ttf-mscorefonts-installer
+    sudo apt -y install ttf-bitstream-vera
+    sudo apt -y install ttf-dejavu
+    sudo apt -y install qbittorrent
+    sudo apt -y install cmake
+    sudo apt -y install gtk2-engines-murrine
+    sudo apt -y install gtk2-engines-pixbuf
+    sudo apt -y install cowsay 
+    sudo apt -y install figlet
+    sudo apt -y install fortune
+    sudo apt -y install lolcat
+    sudo apt -y install google-chrome-stable
+    sudo apt -y install code
+    sudo apt -y install lm-sensors
+    sudo apt -y install gnome-tweaks
+    sudo apt -y install spotify-client
 
     # candy icons
     pushd ~/repos
@@ -141,7 +148,7 @@ configure_ubuntu() {
     sudo apt update
     sudo apt -y install apt-transport-https
     sudo apt -y update
-    sudo apt -y install dotnet-sdk-3.1
+    sudo apt -y install dotnet-sdk-5.0
     rm packages-microsoft-prod.deb
 
     sudo apt install docker.io
@@ -204,7 +211,7 @@ configure_rust() {
     cargo install starship
     cargo install bottom
     cargo install fd-find
-    cargo install tab
+    # cargo install tab
     cargo install cargo-update
     # brew install ripgrep
     # brew install git-delta
