@@ -95,7 +95,7 @@ configure_ubuntu() {
     echo "This appears to be an Ubuntu/Debian based system.  Configuring..."
 
     # doing install individually for each one in case a package name changes
-    # or isn't available.  
+    # or isn't available.
 
     sudo apt update && sudo apt -y upgrade
     sudo apt -y install build-essential # needed for rust projects
@@ -108,12 +108,11 @@ configure_ubuntu() {
     sudo apt -y install zsh-syntax-highlighting
     sudo apt -y install ttf-mscorefonts-installer
     sudo apt -y install ttf-bitstream-vera
-    sudo apt -y install ttf-dejavu
     sudo apt -y install qbittorrent
     sudo apt -y install cmake
     sudo apt -y install gtk2-engines-murrine
     sudo apt -y install gtk2-engines-pixbuf
-    sudo apt -y install cowsay 
+    sudo apt -y install cowsay
     sudo apt -y install figlet
     sudo apt -y install fortune
     sudo apt -y install lolcat
@@ -121,7 +120,20 @@ configure_ubuntu() {
     sudo apt -y install code
     sudo apt -y install lm-sensors
     sudo apt -y install gnome-tweaks
-    sudo apt -y install spotify-client
+    sudo apt -y install steam
+    sudo apt -y install lutris
+    sudo apt -y install htop
+    sudo apt -y install bashtop
+    sudo apt -y install vlc
+    sudo apt -y install fonts-firacode
+    sudo apt -y install tmux
+
+    flatpak install -y flathub com.spotify.Client
+
+    # youtube-dl
+    sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+    sudo chmod a+rx /usr/local/bin/youtube-dl
+    sudo ln -s /usr/bin/python3 /usr/bin/python
 
     # candy icons
     pushd ~/repos
@@ -151,9 +163,13 @@ configure_ubuntu() {
     sudo apt -y install dotnet-sdk-5.0
     rm packages-microsoft-prod.deb
 
-    sudo apt install docker.io
+    sudo apt install -y docker.io
     sudo systemctl enable --now docker
     sudo usermod -aG docker $USER
+
+    # Alacritty
+    sudo add-apt-repository ppa:mmstick76/alacritty
+    sudo apt install alacritty
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     export PATH=~/.cargo/bin:$PATH
