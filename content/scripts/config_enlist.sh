@@ -155,21 +155,14 @@ configure_ubuntu() {
     sudo apt install --no-install-recommends yarn
 
     # dotnet
-    wget https://packages.microsoft.com/config/ubuntu/19.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-    sudo dpkg -i packages-microsoft-prod.deb
-    sudo apt update
-    sudo apt -y install apt-transport-https
-    sudo apt -y update
-    sudo apt -y install dotnet-sdk-5.0
-    rm packages-microsoft-prod.deb
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https 
+    sudo apt-get update
+    sudo apt-get install -y dotnet-sdk-6.0
 
     sudo apt install -y docker.io
     sudo systemctl enable --now docker
     sudo usermod -aG docker $USER
-
-    # Alacritty
-    sudo add-apt-repository ppa:mmstick76/alacritty
-    sudo apt install alacritty
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     export PATH=~/.cargo/bin:$PATH
