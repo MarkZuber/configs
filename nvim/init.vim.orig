@@ -29,13 +29,6 @@ Plug 'rust-lang/rust.vim'
 " Required: Add a syntax file.  YATS is the best
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-" For async completion
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-" Denite features
-Plug 'Shougo/denite.nvim'
-
-" Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -75,6 +68,8 @@ let g:localvimrc_ask = 0
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
+
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 set cmdheight=2
 

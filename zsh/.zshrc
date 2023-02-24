@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 IS_AT_WORK=false
 
 if [ -f ~/.isatwork ]; then
@@ -12,7 +19,8 @@ fi
 export ZSH=~/.config/repos/oh-my-zsh
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
@@ -44,7 +52,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$unamestr" == "pop-os" ]]; then
 
   plugins=(
-    cargo
+    web-search
     extract
     github
     gitignore
@@ -52,7 +60,6 @@ if [[ "$OSTYPE" == "darwin"* ]] || [[ "$unamestr" == "pop-os" ]]; then
     history
     jsontools
     last-working-dir
-    osx
     rand-quote
     rsync
     rust
@@ -91,13 +98,16 @@ else
 fi
 
 alias vim="nvim"
+alias sv="sudo nvim"
 
 # User configuration
-export editor='nvim'
+export EDITOR='nvim'
 
 # Aliases
 
-alias open="exo-open "
+if [[ "$OSTYPE" != "darwin"* ]]; then
+     alias open="exo-open "
+fi
 
 ### Rust Aliases
 alias cr="cargo run "
@@ -384,3 +394,6 @@ eval "$(starship init zsh)"
 # tab multiplexer configuration: https://github.com/austinjones/tab-rs/
 [ -f "/Users/zube/Library/Application Support/tab/completion/zsh-history.zsh" ] && source "/Users/zube/Library/Application Support/tab/completion/zsh-history.zsh"
 # end tab configuration
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
