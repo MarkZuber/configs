@@ -29,6 +29,7 @@
 !/picom/
 !/iterm2/
 !/fonts/
+!/powershell/
 
 !vscode/
 vscode/*
